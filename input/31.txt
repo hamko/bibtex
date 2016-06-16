@@ -1,0 +1,4 @@
+@article{yamane仮想仕事の原理を用いた並列化可能な高速順動力学計算法,
+  title={仮想仕事の原理を用いた並列化可能な高速順動力学計算法},
+  author={Yamane, Katsu and Nakamura, Yoshihiko}
+}

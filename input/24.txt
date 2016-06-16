@@ -1,0 +1,6 @@
+@article{shidara1993inverse,
+  title={Inverse-dynamics model eye movement control by Purkinje cells in the cerebellum},
+  author={Shidara, M and Kawano, K and Gomi, H and Kawato, M},
+  year={1993},
+  publisher={Nature Publishing Group}
+}

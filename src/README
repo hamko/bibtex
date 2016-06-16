@@ -1,0 +1,49 @@
+Knownの自動検出
+    rename.pyに書いてある。
+スタイルごとのbibの生成
+    build_bib.pyに書いてある。
+
+----
+2.1 必要な情報
+2.1.1. 順番は自動で調整されますが、以下の情報は必要なので、bibファイルに記入して下さい。
+
+・学会論文の場合は @inproceedings を使う。
+「著者、タイトル、会議名、開催年、ページ」
+
+・論文誌論文の場合は @article を使う。
+「著者、タイトル、論文誌名、巻号、ページ、発行年」
+
+・書籍の場合は @book を使う。
+「著者、タイトル、出版社、発行年」
+
+
+略称=abbreviationには以下がある
+    1. Acronym
+    2. ISO方式
+    3. NLM方式
+
+ISO, NLMはは以下のページから確認できるが、IEEE系は意味不明になってるので、Acronymを使う。
+http://www.ncbi.nlm.nih.gov/nlmcatalog/
+
+IEEEのAcronymはこれ
+あと、IEEEは、最後の,の前後をひっくり返さないといけないのか…
+http://www.ieee.org/documents/ieee_conference_acronyms.pdf
+
+----
+
+全体の流れ
+    input/*.bib --(rename.py)-> src/bibtex.csv
+    src/bibtex.csv + input.tex --(citer)-> NumberedInput.tex
+    src/bibtex.csv + style --(build_bib)-> bibtexStyle.bib
+
+python citer.py [input.tex]
+    src/bibtex.csvを使って
+    input.texの[18]のような番号を全部正しくナンバリングする。
+
+python rename.py
+    input/*.bibを使って
+    src/bibtex.csvを生成する。
+
+python build_bib.py
+    src/bibtex.csvを使って
+    スタイルを指定するとその通りのbibが生成される

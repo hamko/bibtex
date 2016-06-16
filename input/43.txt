@@ -1,0 +1,4 @@
+@article{model高速動力学計算法を用いた詳細人体モデルに基づく人間の力学計算,
+  title={高速動力学計算法を用いた詳細人体モデルに基づく人間の力学計算},
+  author={Model, Human and Suzuki, Ichiro and Tatani, Koji and Kurihara, Kazutaka and Nakamura, Yoshihiko}
+}

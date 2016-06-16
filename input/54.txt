@@ -1,0 +1,6 @@
+@techreport{hanavan1964mathematical,
+  title={A mathematical model of the human body},
+  author={Hanavan Jr, Ernest P},
+  year={1964},
+  institution={DTIC Document}
+}

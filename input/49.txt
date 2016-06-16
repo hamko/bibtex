@@ -1,0 +1,8 @@
+@article{zatsiorsky1985estimation,
+  title={Estimation of the mass and inertia characteristics of the human body by means of the best predictive regression equations},
+  author={Zatsiorsky, V and Seluyanov, V},
+  journal={Biomechanics IX-B},
+  pages={233--239},
+  year={1985},
+  publisher={Human Kinetics, Champaign, IL}
+}

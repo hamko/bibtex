@@ -1,0 +1,4 @@
+@article{gentianeヒューマノイドロボットの同定法を用いた人間の力学パラメータの同定,
+  title={ヒューマノイドロボットの同定法を用いた人間の力学パラメータの同定},
+  author={Gentiane, Venture and 鮎澤光 and 中村仁彦 and Venture, Gentiane and Ayusawa, Ko and Nakamura, Yoshihiko}
+}

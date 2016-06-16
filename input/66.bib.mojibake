@@ -1,0 +1,8 @@
+@InProceedings{Ohmura:drift,
+  author =	{大村吉幸，國吉康夫},
+  title =	{慣性センサによる手の姿勢計測時のドリフト削除},
+  booktitle =	{ロボティクスシンポジア予稿集},
+  year =	{2013},
+  volume =	18,
+  pages =	{316--321},
+}

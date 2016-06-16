@@ -1,0 +1,8 @@
+@incollection{sagisaka2012development,
+  title={Development and applications of high-density tactile sensing glove},
+  author={Sagisaka, Takashi and Ohmura, Yoshiyuki and Nagakubo, Akihiko and Ozaki, Kazuyuki and Kuniyoshi, Yasuo},
+  booktitle={Haptics: Perception, Devices, Mobility, and Communication},
+  pages={445--456},
+  year={2012},
+  publisher={Springer}
+}

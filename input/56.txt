@@ -1,0 +1,5 @@
+@article{bejczy1974robot,
+  title={Robot arm dynamics and control},
+  author={Bejczy, Antal K},
+  year={1974}
+}

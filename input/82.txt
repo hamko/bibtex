@@ -1,0 +1,8 @@
+@incollection{SensorimotorControlOfManipulationJohansson,
+    author="Johansson RS, Flanagan JR",
+    title="Sensorimotor Control of Manipulation",
+    year="2009",
+    booktitle="Encyclopedia of Neuroscience",
+    pages="593--604",
+    publisher="Academic Press",
+}
