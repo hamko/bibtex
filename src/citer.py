@@ -24,16 +24,19 @@ for line in open(f, "r"):
 outFile = open("out.tex","w")
 linenum = 0
 for s in open(argvs[1], "r"):
+    s.strip()
     linenum += 1
     l = 0
     while True: 
-        l_ = s[l:len(s)-1].find("[") 
-        r_ = s[l:len(s)-1].find("]") 
+        l_ = s[l:len(s)].find("[") 
+        r_ = s[l:len(s)].find("]") 
         if l_ == -1 or r_ == -1:
             break
+        l_ += l
+        r_ += l
         l = r_ + 1
         cites = s[l_+1:r_]
-        if re.match("[a-zA-Z]", cites) != None:
+        if re.search("[a-zA-Z]", cites) != None:
             continue
 
         cites_array = cites.split(",")

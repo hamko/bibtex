@@ -124,7 +124,7 @@ for fname in fnames:
     reference += dic["year"].strip();
     
 
-    title_ws = dic["title"].replace("-", "").replace(":", "").replace("\"", "").replace("\'", "").replace("!", "").replace("?", "").replace("/", "").split(" ")
+    title_ws = dic["title"].replace("-", "").replace(":", "").replace("\"", "").replace("\'", "").replace("!", "").replace("?", "").replace("/", "").replace(",", "").replace(".", "").replace("'", "").split(" ")
     for i in range(len(title_ws)):
         reference += title_ws[i].strip().capitalize()
     dic["reference"] = reference
