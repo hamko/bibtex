@@ -15,6 +15,7 @@ numbering = [
         "organization",
         "url",
         "note"
+        "institution"
 ]
 
 

@@ -5,12 +5,37 @@ import re
 import glob
 import common
 
+def constructCSVLine(dic):
+    ret = ""
+    ret += "|"
+    for i in range(20):
+        if (i < len(common.numbering)):
+            a = dic.get(common.numbering[i])
+            if a != None:
+                ret += a
+        ret += "|"
+    ret += "\n"
+    return ret
+
+def stripTitle(title):
+    prohibit = ["+","#","$","%","&","^","@","(",")","-",":","|","\"","\'","!","?","/",",",".","―","'","’",",","\t","\n"]
+#    print title
+    for c in prohibit:
+        title = title.replace(c, "")
+#    print title
+    title_ws = title.split(" ")
+    reference = ""
+    for i in range(len(title_ws)):
+        reference += title_ws[i].strip().capitalize()
+#    print reference
+    return reference
+
+
 fnames = []
 fnames += glob.glob("../input/*.bib")
 fnames += glob.glob("../input/*.txt")
 fnames.sort()
 f = open("bibtex.csv","w")
-
 for fname in fnames:
     dic = {}
     basename = fname[fname.rfind("/")+1:fname.rfind(".")]
@@ -38,11 +63,14 @@ for fname in fnames:
                 dic["type"] = "article"
             elif re.compile("book",re.IGNORECASE).search(s) != None:
                 dic["type"] = "book"
+            elif re.compile("techreport",re.IGNORECASE).search(s) != None:
+                ref = dic["id"] + s[s.find("{")+1:s.find(",")].strip()
+                os.rename(fname, "../input/"+ref+".bib")
+                dic["type"] = "techreport"
             elif re.compile("misc",re.IGNORECASE).search(s) != None:
                 ref = dic["id"] + s[s.find("{")+1:s.find(",")].strip()
                 os.rename(fname, "../input/"+ref+".bib")
                 dic["type"] = "misc"
-                break
         else:
             if s.find("{{") != -1 and s.rfind("}}") != -1:
                 key = s[0:s.find("=")].strip().lower()
@@ -69,9 +97,15 @@ for fname in fnames:
         continue
 
     if dic["type"] == "misc":
+        dic["reference"] = dic["id"] + stripTitle(dic["title"])
+        f.write(constructCSVLine(dic))
+        continue;
+    if dic["type"] == "techreport":
+        dic["reference"] = dic["id"] + stripTitle(dic["title"])
+        f.write(constructCSVLine(dic))
         continue;
     elif dic["type"] == "article":
-        needed = ["id", "title", "year", "pages", "volume", "journal"]
+        needed = ["id", "title", "year", "pages", "journal"] # , "volume"
         NG = 0
         for key in needed:
             if not dic.has_key(key):
@@ -123,24 +157,12 @@ for fname in fnames:
     reference += toshow
     reference += dic["year"].strip();
     
-
-    title_ws = dic["title"].replace("+", "").replace("#", "").replace("$", "").replace("%", "").replace("&", "").replace("^", "").replace("@", "").replace("(", "").replace(")", "").replace("-", "").replace(":", "").replace("\"", "").replace("\'", "").replace("!", "").replace("?", "").replace("/", "").replace(",", "").replace(".", "").replace("'", "").split(" ")
-    for i in range(len(title_ws)):
-        reference += title_ws[i].strip().capitalize()
+    reference += stripTitle(dic["title"])
     dic["reference"] = reference
 
     os.rename(fname, "../input/"+reference+".bib")
 
-    ret = ""
-    ret += "|"
-    for i in range(20):
-        if (i < len(common.numbering)):
-            a = dic.get(common.numbering[i])
-            if a != None:
-                ret += a
-        ret += "|"
-    ret += "\n"
-    f.write(ret)
+    f.write(constructCSVLine(dic))
 
 f.close()
 
